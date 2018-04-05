@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Dojo Survey Index</title>
+</head>
+<body>
+    <h1>Success!</h1>
+    <h2>Submitted Info</h2>
+    <ul>
+        <li>Name: {{ name }}</li>
+        <li>Dojo Location: {{ location }}</li>
+        <li>Favorite Language: {{ language }}</li>
+        <li>Comment: {{ comment }}</li>
+    </ul>
+    <a href="/dojos/new"><button>Go Back</button></a>
+</body>
+</html>

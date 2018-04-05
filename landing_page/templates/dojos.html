@@ -10,7 +10,21 @@
 <body>
     <h1>Create a new Dojo</h1>
     <form action="/submit" method="post">
-        Your Name: <input type="text" name="name">
+        <p>Your Name: <input type="text" name="name"></p>
+        <p>Dojo Location: <select name="location">
+            <option value="Burbank">Burbank</option>
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle">Seattle</option>
+        </select></p>
+        <p>Favorite Language: <select name="language">
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+        </select></p>
+        <p>Comment (optional):</p>
+        <p><textarea type='input' name="comment" cols="40" rows="5"></textarea></p>
+        
         <input type="submit" value="Submit">
     </form>
 </body>
