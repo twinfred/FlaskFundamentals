@@ -1,6 +1,12 @@
 <h1>Tim's Portfolio</h1>
 <h2>Welcome to my portfolio</h2>
 <ul>
-    <li>About</li>
-    <li>Projects</li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/projects">Projects</a></li>
 </ul>
+<form action="/submit" method="get">
+<!-- <form action="/submit" method="post"> -->
+    Name: <input type="text" name="name">
+    Email: <input type="email" name="email">
+    <input type="submit" value="create user">
+</form>
