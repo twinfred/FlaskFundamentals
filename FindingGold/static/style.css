@@ -1,0 +1,145 @@
+ /* RESET CSS */
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+    */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+    body {
+        line-height: 1;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+/* MY CSS */
+body {
+    background-color: rgb(235, 235, 235);
+}
+#wrapper {
+    width: 970px;
+    margin: 0px auto;
+    padding: 10px;
+    background-color: white;
+    box-sizing: border-box;
+}
+h1, h2, h3, input, p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0px;
+    border-bottom: 1px solid black;
+    padding-bottom: 30px;
+}
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+h3 {
+    font-size: 18px;
+}
+#top h3 {
+    display: inline-block;
+    margin: 0px 10px 15px 0px;
+}
+p {
+    font-weight: 16px;
+    line-height: 22px;
+}
+#gold_count {
+    width: 100px;
+    background-color: gold;
+    padding: 4px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+.gold_location {
+    text-align: center;
+    color: white;
+    display: inline-block;
+    width: 24.68%;
+    height: 200px;
+    border: 1px solid black;
+    padding: 30px 10px 10px 10px;
+    box-sizing: border-box;
+    text-shadow: 2px 2px 2px #383838;
+}
+.farm {
+    background-image: url("http://www.takepart.com/sites/default/files/styles/large/public/garlic-farm.jpg");
+    background-size: 140%;
+}
+.cave {
+    background-image: url("https://www.hikespeak.com/img/la/Griffith/Bronson_Cave/Bronson_Cave_IMG_5219.jpg");
+    background-size: 140%;
+}
+.house {
+    background-image: url("http://aucanize.com/wp-content/uploads/2017/05/Texas-Style-Ranch-House-Plans-Lighting.jpg");
+    background-size: 130%;
+}
+.casino {
+    background-image: url("https://s.yimg.com/ny/api/res/1.2/jrrYor_0OZQaVpZemCCnDg--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NjIwO2g9NDEz/http://media.zenfs.com/en-US/homerun/zacks.com/4e3cc5dba061225b1d6de146dd51f222");
+    background-size: 130%;
+}
+input {
+    margin-top: 30px;
+    width: 150px;
+    height: 35px;
+    background-color: black;
+    color: white;
+}
+input:hover {
+    background-color: gold;
+    color: black;
+    cursor: pointer;
+}
+#activites_box {
+    margin: 10px 0px 10px 0px;
+}
+#activites_box h3 {
+    line-height: 30px;
+}
+#activities {
+    border: 1px solid black;
+    padding: 10px;
+    height: 300px;
+    overflow: scroll;
+}

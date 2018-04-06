@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css' )}}">
+    <title>Finding Gold</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>How Much Gold Can You Find?</h1>
+        <div id="top">
+            <h3>Your Gold:</h3>
+            <h3 id="gold_count">{{session['gold_count']}}</h3>
+        </div>
+        <div id="location_box">
+            <div class="gold_location farm">
+                <h2>Farm</h2>
+                <h3>(win 10-20 gold)</h3>
+                <form action="/find_gold" method="post">
+                    <input type="hidden" name="gold_location" value="farm">
+                    <input type="submit" value="Search Farm">
+                </form>
+            </div>
+            <div class="gold_location cave">
+                <h2>Cave</h2>
+                <h3>(win 5-10 gold)</h3>
+                <form action="/find_gold" method="post">
+                    <input type="hidden" name="gold_location" value="cave">
+                    <input type="submit" value="Search Cave">
+                </form>
+            </div>
+            <div class="gold_location house">
+                <h2>House</h2>
+                <h3>(win 2-5 gold)</h3>
+                <form action="/find_gold" method="post">
+                    <input type="hidden" name="gold_location" value="house">
+                    <input type="submit" value="Search House">
+                </form>
+            </div>
+            <div class="gold_location casino">
+                <h2>Casino</h2>
+                <h3>(win/lose 0-50 gold)</h3>
+                <form action="/find_gold" method="post">
+                    <input type="hidden" name="gold_location" value="casino">
+                    <input type="submit" value="Search Casino">
+                </form>
+            </div>
+        </div>
+        <div id="activites_box">
+            <!-- ACTIVIES TRACKER -->
+            <h3>Activities</h3>
+            <div id="activities">
+                {% for val in session['activities_tracker'] %}
+                <p>{{ val }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
