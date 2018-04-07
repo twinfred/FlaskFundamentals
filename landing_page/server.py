@@ -24,8 +24,8 @@ def submit_name():
     if len(request.form['name']) < 1:
         flash('Name cannot be empty.')
         valid = False
-    if len(request.form['comment']) < 120:
-        flash('Comment must be at least 120 characters.')
+    if len(request.form['comment']) > 120:
+        flash('Comment cannot be more than 120 characters.')
         valid = False
     if valid == False:
         return redirect('/dojos/new')
