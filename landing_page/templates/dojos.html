@@ -9,6 +9,13 @@
 </head>
 <body>
     <h1>Please fill out our survey!</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <form action="/submit" method="post">
         <p>Your Name: <input type="text" name="name"></p>
         <p>Dojo Location: <select name="location">
@@ -22,7 +29,7 @@
             <option value="JavaScript">JavaScript</option>
             <option value="Python">Python</option>
         </select></p>
-        <p>Comment (optional):</p>
+        <p>Comment:</p>
         <p><textarea type='input' name="comment" cols="40" rows="5"></textarea></p>
         
         <input type="submit" value="Submit">
