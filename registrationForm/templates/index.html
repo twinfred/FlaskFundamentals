@@ -10,24 +10,30 @@
 <body>
     <div id="wrapper" class="borderBox">
         <h1>Welcome to the magical world of Andromeda!</h1>
-        <div id="register" class="borderBox">
+        <div class="form_box borderBox">
             <h2>Create an account...</h2>
-            {% with messages = get_flashed_messages() %}
+            {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% for message in messages %}
-                        <p style="color: rgb(220, 1, 1)">{{ message }}</p>
+                    <p class="error flashes alert">ERROR:</p>
+                    <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
                     {% endfor %}
+                    </ul>
                 {% endif %}
             {% endwith %}
             <form action="/submit" method="post">
                 <input type="email" name="email" placeholder="Email">
                 <input type="text" name="first_name" placeholder="First Name">
                 <input type="text" name="last_name" placeholder="Last Name">
-                <input type="text" name="username" placeholder="Username">
+                <p class="form_name">When is your birthday?</p>
+                <input type="date" name="birthday" value="{{ today }}">
+                <input type="text" name="username" placeholder="Create a Username">
                 <input type="password" name="password" placeholder="Password">
                 <input type="password" name="pass_confirm" placeholder="Confirm Password">
                 <p class="subtext">Passwords must be at least 8 characters long and must contain at least one uppercase letter and one numeric value.</p>
                 <input class="submit_button" type="submit" value="Sign Up">
+                <p class="subtext">You must be at least 13 years old to register.</p>
                 <p class="subtext">By registering you are agreeing to the <a href="#">Terms and Conditions</a>.</p>
             </form>
         </div>
