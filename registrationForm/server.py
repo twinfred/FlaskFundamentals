@@ -9,10 +9,6 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 def index():
     return render_template('index.html')
 
-@app.route('/welcome')
-def welcome():
-    return render_template('welcome.html')
-
 @app.route('/submit', methods=['POST'])
 def submit():
     # VALIDATION
@@ -25,13 +21,12 @@ def submit():
     email = request.form['email']
     first_name = request.form['first_name']
     last_name= request.form['last_name']
-    birthday = request.form['birthday']
-    if isinstance(birthday, unicode):
+    birthday = str(request.form['birthday'])
+    print "Hello" + request.form['birthday']
+    if not birthday:
         flash(u'Please enter your birthday.', 'error')
         valid = False
         return redirect('/')
-    print birthday
-    print type(birthday)
     birth_year = int(str(request.form['birthday']).split("-")[0])
     birth_month = int(str(request.form['birthday']).split("-")[1])
     birth_day = int(str(request.form['birthday']).split("-")[2])
@@ -75,6 +70,6 @@ def submit():
         return redirect('/')
     else: 
         flash(u"Your account has been created!", 'success')
-        return redirect('/welcome')
+        return render_template('welcome.html')
 
 app.run(debug=True)
