@@ -1,13 +1,29 @@
 from flask import Flask, redirect, render_template, session, flash, request
 from datetime import date, datetime
 import re
+#IMAGE UPLOAD
+import os
+
 app = Flask(__name__)
 app.secret_key = "SomeSecretKeysAreVerySecret"
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
+# IMAGE UPLOAD
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if not 'logged_in' in session or session['logged_in'] == False:
+        return render_template('index.html')
+    elif session['logged_in'] == True:
+        return render_template('logged_home.html')
+
+@app.route('/welcome')
+def welcome():
+    if not 'logged_in' in session or session['logged_in'] == False:
+        flash(u"You're not logged in.", 'error')
+        return redirect('/')
+    elif session['logged_in'] == True:
+        return render_template('welcome.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -19,10 +35,9 @@ def submit():
     today_day = int(today.split("-")[2])
     # FORM INPUTS
     email = request.form['email']
-    first_name = request.form['first_name']
+    session['first_name'] = request.form['first_name']
     last_name= request.form['last_name']
     birthday = str(request.form['birthday'])
-    print "Hello" + request.form['birthday']
     if not birthday:
         flash(u'Please enter your birthday.', 'error')
         valid = False
@@ -42,7 +57,7 @@ def submit():
         flash(u'The email you entered is not the correct format.', 'error')
         valid = False
     # NAME VALIDATION
-    if len(first_name) < 1:
+    if len(request.form['first_name']) < 1:
         flash(u'First Name cannot be empty.', 'error')
         valid = False
     if len(last_name) < 1:
@@ -70,6 +85,21 @@ def submit():
         return redirect('/')
     else: 
         flash(u"Your account has been created!", 'success')
-        return render_template('welcome.html')
+        session['logged_in'] = True
+        return redirect('/welcome')
+
+# IMAGE UPLOAD
+@app.route('/')
+@app.route('/upload', methods=['POST'])
+def upload():
+    target = os.path.join(APP_ROOT, 'static/img')
+    print target
+    for file in request.files.getlist('file'):
+        print file
+        session['file_name'] = file.filename
+        destination = "/".join([target, session['file_name']])
+        print "Destination: " + str(destination)
+        file.save(destination)
+    return redirect('/')
 
 app.run(debug=True)

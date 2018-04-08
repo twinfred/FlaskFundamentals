@@ -74,6 +74,12 @@ h1 {
     text-shadow: 2px 2px 2px #383838;
 }
 h2 {
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 34px;
+    margin-bottom: 10px;
+}
+h2.index {
     font-size: 30px;
     font-weight: bold;
     line-height: 34px;
@@ -108,43 +114,47 @@ li {
     padding: 4px 0px 4px 4px;
 }
 /* REGISTRATION FORM */
-.form_box {
-    width: 400px;
-    margin: 0px auto 10px auto;
-    padding: 18px 40px;
-    background-color: rgba(214, 214, 214, 0.850);
-    box-shadow: 3px 3px 6px #383838;
-}
-.subtext {
-    font-size: 11px;
-    font-style: italic;
-    line-height: 13px;
-    margin-bottom: 10px;
-}
-.form_name {
-    font-size: 12px;
-    margin-top: -5px;
-    margin-left: 0px;
-    text-align: left;
-    margin-bottom: 5px;
-}
-.submit_button {
-    background-color: darkblue;
-    height: 40px;
-    color: white;
-}
-.submit_button:hover {
-    background-color: darkslateblue;
-    cursor: pointer;
-}
-#register a {
-    color: rgb(44, 44, 44);
-}
-.flashes {
-    font-size: 14px;
-    font-style: italic;
-    text-align: left;
-}
+    .form_box {
+        width: 400px;
+        margin: 0px auto 10px auto;
+        padding: 18px 40px;
+        background-color: rgba(214, 214, 214, 0.850);
+        box-shadow: 3px 3px 6px #383838;
+    }
+    .subtext {
+        font-size: 11px;
+        font-style: italic;
+        line-height: 13px;
+        margin-bottom: 10px;
+    }
+    .form_name {
+        font-size: 12px;
+        margin-top: -5px;
+        margin-left: 0px;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    .submit_button {
+        background-color: darkblue;
+        height: 40px;
+        color: white;
+    }
+    .submit_button:hover {
+        background-color: darkslateblue;
+        cursor: pointer;
+    }
+    #register a {
+        color: rgb(44, 44, 44);
+    }
+    .flashes {
+        font-size: 14px;
+        font-style: italic;
+        text-align: left;
+    }
+/* LOGGED HOME */
+    #profile_pic {
+        width: 100%;
+    }
 /* STANDARD STYLES */
 .alert {
     margin-bottom: 6px;
