@@ -89,7 +89,6 @@ def submit():
         return redirect('/welcome')
 
 # IMAGE UPLOAD
-@app.route('/')
 @app.route('/upload', methods=['POST'])
 def upload():
     target = os.path.join(APP_ROOT, 'static/img')
