@@ -93,11 +93,13 @@ def submit():
 def upload():
     target = os.path.join(APP_ROOT, 'static/img')
     print target
+    if not request.files:
+        flash('Please upload a file.', 'error')
+        return redirect('/welcome')
     for file in request.files.getlist('file'):
         print file
         session['file_name'] = file.filename
         destination = "/".join([target, session['file_name']])
-        print "Destination: " + str(destination)
         file.save(destination)
     return redirect('/')
 
